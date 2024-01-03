@@ -68,11 +68,21 @@ impl FmodStudio {
         studio
     }
 
-    pub fn build_audio_source(&self, path_or_id: &str) -> AudioSource {
+    pub fn build_audio_source(&self, path_or_id: &str, auto_start: bool) -> AudioSource {
         let event_description = self
             .0
             .get_event(path_or_id)
             .expect("Failed to get FMOD event from path or ID.");
-        AudioSource::new(event_description)
+
+        let source = AudioSource::new(event_description);
+
+        if auto_start {
+            source
+                .event_instance
+                .start()
+                .expect("Failed to start audio source as requested by build caller.");
+        }
+
+        source
     }
 }
