@@ -9,7 +9,7 @@ use libfmod::ffi::FMOD_STUDIO_INIT_LIVEUPDATE;
 use libfmod::ffi::{
     FMOD_INIT_3D_RIGHTHANDED, FMOD_STUDIO_INIT_NORMAL, FMOD_STUDIO_LOAD_BANK_NORMAL,
 };
-use libfmod::Studio;
+use libfmod::{Studio, StopMode};
 
 #[derive(Resource)]
 pub struct FmodStudio(pub Studio);
@@ -68,13 +68,18 @@ impl FmodStudio {
         studio
     }
 
-    pub fn build_audio_source(&self, path_or_id: &str, auto_start: bool) -> AudioSource {
+    pub fn build_audio_source(
+        &self,
+        path_or_id: &str,
+        on_drop_stopmode: StopMode,
+        auto_start: bool,
+    ) -> AudioSource {
         let event_description = self
             .0
             .get_event(path_or_id)
             .expect("Failed to get FMOD event from path or ID.");
 
-        let source = AudioSource::new(event_description);
+        let source = AudioSource::new(event_description, on_drop_stopmode);
 
         if auto_start {
             source

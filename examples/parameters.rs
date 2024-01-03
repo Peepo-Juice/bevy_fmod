@@ -65,11 +65,19 @@ struct CountrySfxPlayer;
 fn startup(mut commands: Commands, studio: Res<FmodStudio>) {
     commands
         .spawn(ForestSfxPlayer)
-        .insert(studio.build_audio_source("event:/Ambience/Forest"));
+        .insert(studio.build_audio_source(
+            "event:/Ambience/Forest",
+            libfmod::StopMode::Immediate,
+            false,
+        ));
 
     commands
         .spawn(CountrySfxPlayer)
-        .insert(studio.build_audio_source("event:/Ambience/Country"));
+        .insert(studio.build_audio_source(
+            "event:/Ambience/Country",
+            libfmod::StopMode::Immediate,
+            false,
+        ));
 }
 
 fn play_music(audio_sources: Query<&AudioSource>) {

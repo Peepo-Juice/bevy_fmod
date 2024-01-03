@@ -33,7 +33,11 @@ struct MyMusicPlayer;
 fn startup(mut commands: Commands, studio: Res<FmodStudio>) {
     commands
         .spawn(MyMusicPlayer)
-        .insert(studio.build_audio_source("event:/Music/Level 03"));
+        .insert(studio.build_audio_source(
+            "event:/Music/Level 03",
+            libfmod::StopMode::Immediate,
+            false,
+        ));
 }
 
 fn play_music(mut audio_sources: Query<&AudioSource, With<MyMusicPlayer>>) {
