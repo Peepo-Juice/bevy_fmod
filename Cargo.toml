@@ -1,39 +1,3 @@
-<<<<<<< HEAD
-[package]
-name = "bevy_fmod"
-description = "Idiomatic FMOD in Bevy"
-authors = ["Fabian 'Salzian' Fritzsche <bevy_fmod@salzian.dev>"]
-edition = "2021"
-repository = "https://github.com/salzian/bevy_fmod"
-version = "0.3.0"
-license = "MIT OR Apache-2.0"
-
-[dependencies]
-anyhow = "1.0"
-bevy = { version = "0.13", default-features = false, features = ["bevy_audio"] }
-bevy_mod_sysfail = "3.0"
-libfmod = "~2.206.2"
-
-[dev-dependencies]
-# The examples need the default features of bevy
-bevy = { version = "0.13", default-features = true }
-
-[features]
-default = []
-live-update = []
-
-[[example]]
-name = "minimal"
-
-[[example]]
-name = "audio_control"
-
-[[example]]
-name = "spatial"
-
-[[example]]
-name = "parameters"
-=======
 [package]
 name = "bevy_fmod"
 description = "Idiomatic FMOD in Bevy"
@@ -68,4 +32,3 @@ name = "spatial"
 
 [[example]]
 name = "parameters"
->>>>>>> 3b7e8fa05a299db4ffe31827b650061bc3df8884
