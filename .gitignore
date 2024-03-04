@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 target/
 assets/
 *.lib
@@ -6,3 +7,14 @@ assets/
 *.so.*
 demo_project/
 Cargo.lock
+=======
+target/
+assets/
+*.lib
+*.dll
+*.so
+*.so.*
+demo_project/
+Cargo.lock
+.DS_Store
+>>>>>>> 3b7e8fa05a299db4ffe31827b650061bc3df8884

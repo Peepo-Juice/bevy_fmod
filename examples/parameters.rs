@@ -44,9 +44,9 @@ fn main() {
             DefaultPlugins,
             FmodPlugin {
                 audio_banks_paths: &[
-                    "./assets/Master.bank",
-                    "./assets/Master.strings.bank",
-                    "./assets/SFX.bank",
+                    "./assets/audio/demo_project/Build/Desktop/Master.bank",
+                    "./assets/audio/demo_project/Build/Desktop/Master.strings.bank",
+                    "./assets/audio/demo_project/Build/Desktop/SFX.bank",
                 ],
             },
         ))
@@ -86,7 +86,14 @@ fn play_music(audio_sources: Query<&AudioSource>) {
     }
 }
 
+<<<<<<< HEAD
 fn set_rain(audio_sources: Query<&AudioSource, With<ForestSfxPlayer>>, input: Res<ButtonInput<KeyCode>>) {
+=======
+fn set_rain(
+    audio_sources: Query<&AudioSource, With<ForestSfxPlayer>>,
+    input: Res<ButtonInput<KeyCode>>,
+) {
+>>>>>>> 3b7e8fa05a299db4ffe31827b650061bc3df8884
     if input.just_pressed(KeyCode::ArrowUp) {
         for audio_source in audio_sources.iter() {
             audio_source
